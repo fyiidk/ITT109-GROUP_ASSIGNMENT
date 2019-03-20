@@ -1,20 +1,16 @@
-'''
-from tikinter import *
-from tkinter import filedialog
-rules = "Here are the rules:\n*Rock beats Scissors\n*Scissors beats Paper\n*Paper beats Rock"
-main_window = Tk()
-main_window.title("ROCK PAPER SCISSORS")
-main_window.geometry("600x600")
-rules_label = Label(main_window, text=rules)
-rules_label.pack()
-main_window.mainloop()
-'''
 from tkinter import * 
+from random import randint
 from tkinter import filedialog
-rules = "Here are the rules:\nRock beats Scissors\nScissors beats Paper\nPaper beat Rock"
+rules = "Here are the rules:\nRock beats Scissors\nScissors beats Paper\nand Paper beat Rock"
 main_window = Tk()
 main_window.title("Rock Paper Scissor: The Game")
-main_window.geometry("200x200")
+
+main_menu = Menu(main_window)
+sub_menu = Menu(main_menu)
+main_menu.add_cascade(label="Option", menu=sub_menu)
+main_window.config(menu=main_menu)
+sub_menu.add_command(label="Exit", command=main_window.quit)
+
 rules_label = Label(main_window, justify="center", fg="#000FFF", bg="#FFFFFF", text=rules)
-rules_label.pack()
+rules_label.grid(row=0, column=0)
 main_window.mainloop()
