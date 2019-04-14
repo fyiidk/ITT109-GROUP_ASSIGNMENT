@@ -1,0 +1,42 @@
+# Make a Intro
+from tkinter import *
+
+# Create window for the program
+# Insert Title for the program
+# import Tkinter as tk
+#Import tkinter, establish window size and title.
+Pro_2 = Tk()
+Pro_2.geometry("600x400+200+200")
+Pro_2.title('Currency Converter')
+
+# Make the heading
+msg_1= "Welcome to Currency Converter."
+# Here I set up the label texts
+msg_2= "Convert from US Dollars to Canadian Dollars."
+usd_3= "USD"
+cad_4= "CAD"
+msg_3= "is equivalent to"
+#Make the labels
+Label(Pro_2,text= msg_1, bg='#FFFFAA', font='Times 16').grid(row = 0, column = 0, sticky = W)
+Label(Pro_2,text= msg_2,font='Times 12').grid(row = 3, column = 0, sticky = W)
+Label(Pro_2,text= usd_3,font='Times 12').grid(row = 4, column = 2, sticky = W)
+Label(Pro_2,text= msg_3,font='Times 12').grid(row = 5, column = 1, sticky = W)
+Label(Pro_2,text= "0" + cad_4,font='Times 12',bg='#FFFFFF').grid(row = 5, column = 2, sticky = W)
+#Make an entry
+
+usd= IntVar()
+usd_entry= Entry(Pro_2,width=7,textvariable=usd)
+usd_entry.grid(column = 1, row = 4, sticky = W)
+# The button function
+def calculate():
+    value = usd.get()
+    cad=(value * 1.33) 
+    Label(Pro_2,text= str(cad)+ cad_4,font='Times 12',bg='#FFFFFF').grid(row = 5, column = 2, sticky = W)
+
+render= PhotoImage(file= 'C:\\Users\\Ceejay\\Pictures\\Saved Pictures\\cad_usd.png')
+img = Label(Pro_2, image=render)
+img.grid(row = 7, column = 1, sticky =(W, E))
+
+#Make a button
+Button(Pro_2, text="Calculate", command=calculate).grid(column=1, row=11, sticky=W)
+Pro_2.mainloop()
